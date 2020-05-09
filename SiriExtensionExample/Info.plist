@@ -60,5 +60,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSSiriUsageDescription</key>
+	<string>Want to activate exercise</string>
+	<key>NSUserActivityTypes</key>
+	<dict>
+		<key>Item</key>
+		<string>com.rohini.SiriExtensionExample.exercise</string>
+	</dict>
 </dict>
 </plist>

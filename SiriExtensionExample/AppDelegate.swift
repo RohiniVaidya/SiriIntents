@@ -7,14 +7,33 @@
 //
 
 import UIKit
+import Intents
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        INPreferences.requestSiriAuthorization { (authorizationStatus) in
+            switch authorizationStatus{
+            case .authorized:
+                print("DEBUG: Siri Authorized")
+            case .denied:
+                print("DEBUG: Siri Authorization denied")
+            case .notDetermined:
+                print("DEBUG: Siri Authorization not determined")
+            case .restricted:
+                print("DEBUG: Siri Authorization is restricted")
+            @unknown default:
+                print("DEBUG: Siri Authorization is unknown")
+            }
+        }
+
+        return true
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+       
         return true
     }
 
